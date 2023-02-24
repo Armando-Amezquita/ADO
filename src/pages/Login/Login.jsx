@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch} from 'react-redux';
 import { login } from '../../store/features/users/usersSlice';
 import './Login.css';
@@ -9,7 +9,13 @@ export function Login() {
         email: null,
         password: null
     })
-    
+
+    const [err, setErr] = useState({
+        email: null,
+        password: null
+    })
+
+     
     const dispatch = useDispatch();
 
     const handleChange = (e) => {
@@ -24,6 +30,22 @@ export function Login() {
         dispatch(login(user))
     }
 
+    useEffect(() => {
+        if(!user.email || !user.password){
+            setErr({
+                ...err,
+                email: 'Todos los campos deben estar llenos para enviar',
+                password: 'Todos los campos deben estar llenos para enviar'
+            })
+        }else{
+            setErr({
+                email: null,
+                password: null
+            })
+        }
+        
+    }, [user])
+
     return (
         <main>
             <section className="left">
@@ -35,7 +57,7 @@ export function Login() {
                 <form onSubmit={handleSubmit} >
                     <p className="title-form">Enter your credentials</p>
                     <label htmlFor="email">Ingrese su correo electronico</label>
-                    <input onChange={handleChange} type="text" name="email" id='email' placeholder="yourname@gmail.com" />
+                    <input onChange={handleChange} type="text" name="email" id='email' placeholder="yourname@gmail.com" />                   
                     
                     <label htmlFor="password">Ingrese su contraseña </label>
                     <input onChange={handleChange} type="password" name="password" id="password" placeholder="SmallTigger21" />
@@ -47,7 +69,11 @@ export function Login() {
                     <div className='form_container'>
                         <p>Not a member?</p>
                     </div>
-                    <button className='button__login'>Ingresar</button>
+
+                    
+                    { err.password ? <span className='alert'>{err.password}</span> : err.email ? <span className='alert'>{err.email}</span> : null }
+                    
+                    {!err.email && !err.password ? <button className='button__login'>Ingresar</button> : <button disabled className='button__login disable'>Ingresar</button> }
                 </form>
             </section>
         </main>

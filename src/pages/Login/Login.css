@@ -95,3 +95,16 @@ p{
     cursor: pointer;
     margin-top: 2rem;
 }
+
+.alert{
+    color: red;
+    font-size: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+}
+.disable{
+    background-color: gray;
+}
+.active{
+    background-color: #248AFF;
+}
