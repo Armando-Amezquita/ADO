@@ -1,0 +1,28 @@
+.container__post{
+    padding: 2rem;
+}
+.container__post-card{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__post{
+    text-align: center;
+}
+
+.post__button{
+    background-color: #248AFF;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+}
+
+.container__post-img{
+    width: 40rem;
+    height: 40rem;
+    margin-top: 2rem;
+}

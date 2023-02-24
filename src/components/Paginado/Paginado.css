@@ -1,0 +1,33 @@
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30rem;
+    height: 4rem;
+}
+.buttons{
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 0 .5rem;
+    background-color: transparent;
+    color: #248AFF;
+    border: 1px solid #248AFF;
+    font-size: 1rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    box-shadow: 10px 10px 38px -17px rgba(0,0,0,0.50);
+}
+.buttons:hover{
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.5rem;
+}
+li{
+    list-style: none;
+}
